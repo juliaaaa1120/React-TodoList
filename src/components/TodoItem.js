@@ -1,13 +1,11 @@
 import { useState } from "react";
 
 function TodoItem(props) {
-    const [item, setItem] = useState("");
-
     return (
-        <div>
-            <span>{item}</span>
+        <div className="todoItem">
+            <span>{props.item}</span>
         </div>
     );
 }
 
-export default Counter;
+export default TodoItem;

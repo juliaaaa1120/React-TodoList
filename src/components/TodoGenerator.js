@@ -1,18 +1,18 @@
 import { useState } from "react";
 
 function TodoGenerator(props) {
-    const [todo, setTodo] = useState("");
+    const [todoItem, setTodoItem] = useState("");
 
     function addTodo() {
-        if (document.getElementById("newTodo").value.trim() != "") {
-            props.updateList(document.getElementById("newTodo").value);
-            document.getElementById("newTodo").value = "";
+        if (todoItem.trim() != "") {
+            props.updateList(todoItem.trim());
+            setTodoItem("");
         }
     }
 
     return (
         <div className="todoGenerator">
-            <input id="newTodo" type="text"></input>
+            <input value={todoItem} type="text" onChange={event => setTodoItem(event.target.value)}></input>
             <button type="submit" onClick={addTodo}>add</button>
         </div>
     );

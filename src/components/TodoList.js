@@ -11,7 +11,7 @@ function TodoList() {
 
     return (
         <>
-            <p>Todo List</p>
+            <h1>Todo List</h1>
             <TodoGroup todoList={todoList}></TodoGroup>
             <TodoGenerator updateList={updateTodoList}></TodoGenerator>
         </>

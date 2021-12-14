@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { UPDATE_STATUS } from "../constants/constants";
+import { UPDATE_STATUS, REMOVE_TODOITEM } from "../constants/constants";
 
 function TodoItem(props) {
     const dispatch = useDispatch();
@@ -8,13 +8,18 @@ function TodoItem(props) {
         dispatch({ type: UPDATE_STATUS, payload: props.item.id });
     }
 
+    function removeTodoItem() {
+        dispatch({ type: REMOVE_TODOITEM, payload: props.item.id });
+    }
+
     return (
         <div className="todoItem">
-            <p className={
+            <span onClick={updateStatus}>
+                <p className={
                 props.item.done == true ? "lineThrough" : ""
-            } onClick={updateStatus}>
-                {props.item.text}
-            </p>
+            }>{props.item.text}</p>
+            </span>
+            <button id="delete" onClick={removeTodoItem}>x</button>
         </div>
     );
 }

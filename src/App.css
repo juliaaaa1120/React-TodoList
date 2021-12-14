@@ -5,12 +5,13 @@
 
 .todoItem {
   border: 2px solid;
-  font-size: 16pt;
+  font-size: 14pt;
   margin-top: 20px;
   margin-left: 20%;
   margin-right: 20%;
   text-align: left;
-  padding: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .todoGenerator {
@@ -36,5 +37,9 @@ button {
   background-color: dodgerblue;
   color: white;
   vertical-align: middle;
+}
+
+.lineThrough {
+  text-decoration: line-through;
 }
 

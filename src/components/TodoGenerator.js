@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { ADD_TODO, RESET_INPUT } from "../constants/constants";
 
 function TodoGenerator(props) {
     const [todoItem, setTodoItem] = useState("");
+    const dispatch = useDispatch();
 
     function addTodo() {
         if (todoItem.trim() != "") {
-            props.updateList(todoItem.trim());
-            setTodoItem("");
+            dispatch({ type: ADD_TODO, payload: todoItem.trim() });
+            // setTodoItem("");
         }
     }
 

@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+h1 {
+  font-size: 30pt;
+}
+
 .todoItem {
   border: 2px solid;
   font-size: 25pt;

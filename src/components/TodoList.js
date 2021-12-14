@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
 import TodoGroup from "./TodoGroup";
 import TodoGenerator from "./TodoGenerator";

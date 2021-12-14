@@ -1,21 +1,25 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { ADD_TODO, RESET_INPUT } from "../constants/constants";
+import { ADD_TODOITEM } from "../constants/constants";
 
-function TodoGenerator(props) {
-    const [todoItem, setTodoItem] = useState("");
+function TodoGenerator() {
+    const [id, setId] = useState(0);
+    const [content, setContent] = useState("");
+    const [status, setStatus] = useState(false);
     const dispatch = useDispatch();
 
     function addTodo() {
-        if (todoItem.trim() != "") {
-            dispatch({ type: ADD_TODO, payload: todoItem.trim() });
-            // setTodoItem("");
+        if (content.trim() != "") {
+            let todoItem = { id: id, text: content, done: status };
+            dispatch({ type: ADD_TODOITEM, payload: todoItem });
+            setId(id + 1);
+            setContent("");
         }
     }
 
     return (
         <div className="todoGenerator">
-            <input value={todoItem} type="text" onChange={event => setTodoItem(event.target.value)}></input>
+            <input value={content} type="text" onChange={event => setContent(event.target.value)}></input>
             <button type="submit" onClick={addTodo}>add</button>
         </div>
     );

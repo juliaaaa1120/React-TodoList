@@ -13,10 +13,10 @@ function TodoItem(props) {
     }
 
     return (
-        <div className="todoItem">
+        <div className="todo-item">
             <span onClick={updateStatus}>
                 <p className={
-                props.item.done == true ? "lineThrough" : ""
+                props.item.done ? "line-through" : ""
             }>{props.item.text}</p>
             </span>
             <button id="delete" onClick={removeTodoItem}>x</button>

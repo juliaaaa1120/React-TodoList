@@ -3,10 +3,10 @@ import TodoItem from "./TodoItem";
 function TodoGroup(props) {
 
     return (
-        <div className="todoGroup">
+        <div className="todo-group">
             {
                 props.todoList.map((item) => (
-                    <TodoItem item={item}></TodoItem>
+                    <TodoItem key={item.id} item={item}></TodoItem>
                 ))
             }
         </div>

@@ -3,17 +3,17 @@ import { ADD_TODOITEM, UPDATE_STATUS, REMOVE_TODOITEM } from "../constants/const
 const todoItemReducer = (state = { todoList: [] }, action) => {
     switch(action.type) {
         case ADD_TODOITEM:
-            return { ...state, todoList: [ ...state.todoList, action.payload ] };
+            return {todoList: [ ...state.todoList, action.payload ] };
         case UPDATE_STATUS:
 
-            return { ...state, todoList: state.todoList.map((item) => {
+            return {todoList: state.todoList.map((item) => {
                 if (item.id == action.payload) {
                     item.done = !item.done;
                 }
                 return item;
             })};
         case REMOVE_TODOITEM:
-            return { ...state, todoList: state.todoList.filter((item) =>
+            return {todoList: state.todoList.filter((item) =>
                 item.id !== action.payload
             )};
         default:

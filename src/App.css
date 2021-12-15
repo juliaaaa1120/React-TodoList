@@ -1,9 +1,9 @@
-.todoList {
+.todo-list {
   margin: 40px;
   text-align: center;
 }
 
-.todoItem {
+.todo-item {
   border: 2px solid;
   font-size: 14pt;
   margin-top: 20px;
@@ -16,7 +16,7 @@
   justify-content: space-between;
 }
 
-.todoGenerator {
+.todo-generator {
   margin-top: 30px;
 }
 
@@ -48,7 +48,7 @@ button[id="delete"] {
   cursor: pointer;
 }
 
-.lineThrough {
+.line-through {
   text-decoration: line-through;
 }
 

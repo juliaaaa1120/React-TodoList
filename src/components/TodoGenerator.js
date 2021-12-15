@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { ADD_TODOITEM } from "../constants/constants";
+import { ADD_TODO_ITEM } from "../constants/constants";
 
 function TodoGenerator() {
     const [content, setContent] = useState("");
     const dispatch = useDispatch();
 
     function addTodoItem() {
-        if (content.trim() != "") {
+        if (content.trim() !== "") {
             const todoItem = { id: uuidv4(), text: content, done: false };
-            dispatch({ type: ADD_TODOITEM, payload: todoItem });
+            dispatch({ type: ADD_TODO_ITEM, payload: todoItem });
             setContent("");
         }
     }

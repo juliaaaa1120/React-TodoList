@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { UPDATE_STATUS, REMOVE_TODOITEM } from "../constants/constants";
+import { UPDATE_STATUS, REMOVE_TODO_ITEM } from "../constants/constants";
 
 function TodoItem(props) {
     const dispatch = useDispatch();
@@ -9,7 +9,7 @@ function TodoItem(props) {
     }
 
     function removeTodoItem() {
-        dispatch({ type: REMOVE_TODOITEM, payload: props.item.id });
+        dispatch({ type: REMOVE_TODO_ITEM, payload: props.item.id });
     }
 
     return (

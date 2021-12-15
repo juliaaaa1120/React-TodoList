@@ -1,12 +1,14 @@
 import TodoItem from "./TodoItem";
+import { useSelector } from "react-redux";
 
-function TodoGroup(props) {
+function TodoGroup() {
+    const todoList = useSelector(state => state.todoList);
 
     return (
         <div className="todo-group">
             {
-                props.todoList.map((item) => (
-                    <TodoItem key={item.id} item={item}></TodoItem>
+                todoList.map((todoItem) => (
+                    <TodoItem key={todoItem.id} todoItem={todoItem}></TodoItem>
                 ))
             }
         </div>

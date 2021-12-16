@@ -12,7 +12,7 @@ function DoneList() {
                 bordered
                 dataSource={doneList}
                 renderItem={doneItem => <List.Item>{doneItem.text}</List.Item>}
-                locale={{ emptyText: "No done items"}}>
+                locale={{ emptyText: "No done items."}}>
             </List>
         </div>
     );

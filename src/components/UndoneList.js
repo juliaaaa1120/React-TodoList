@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { List } from 'antd';
 
 function UndoneList() {
     const undoneList = useSelector(state => state.todoList.filter(todoItem => todoItem.done === false));
@@ -6,9 +7,13 @@ function UndoneList() {
     return (
         <div className="undone-list">
             <h1>Undone List</h1>
-            {
-                undoneList.length !== 0 ? undoneList.map(todoItem => <p>{todoItem.text}</p>) : <p>No undone items.</p>
-            }
+            <List
+                size="large"
+                bordered
+                dataSource={undoneList}
+                renderItem={undoneItem => <List.Item>{undoneItem.text}</List.Item>}
+                locale={{ emptyText: "No undone items."}}>
+            </List>
         </div>
     );
 }

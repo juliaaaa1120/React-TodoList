@@ -1,5 +1,5 @@
+import TodoGroup from "./TodoGroup";
 import { useSelector } from "react-redux";
-import { List } from 'antd';
 import { AlertOutlined } from "@ant-design/icons"
 
 function UndoneList() {
@@ -8,13 +8,9 @@ function UndoneList() {
     return (
         <div className="undone-list">
             <h1><AlertOutlined />   Undone List</h1>
-            <List
-                size="large"
-                bordered
-                dataSource={undoneList}
-                renderItem={undoneItem => <List.Item>{undoneItem.text}</List.Item>}
-                locale={{ emptyText: "No undone items."}}>
-            </List>
+            {
+                undoneList.length !== 0 ? <TodoGroup todoList={undoneList}></TodoGroup> : <p>No undone items.</p>
+            }
         </div>
     );
 }

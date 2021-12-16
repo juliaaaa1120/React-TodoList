@@ -55,7 +55,7 @@
   cursor: pointer;
 }
 
-ul[id="nav"] {
+ul {
   font-size: 11pt;
   list-style-type: none;
   margin: 0;
@@ -64,12 +64,12 @@ ul[id="nav"] {
   background-color: rgb(70, 70, 70);
 }
 
-li[id="nav"] {
+li {
   float: left;
   border-right:1px solid #bbb;
 }
 
-li[id="nav"] a {
+li a {
   display: block;
   color: white;
   text-align: center;
@@ -77,16 +77,11 @@ li[id="nav"] a {
   text-decoration: none;
 }
 
-li[id="nav"] a:hover {
+li a:hover {
   background-color: #111;
   cursor: pointer;
 }
 
-ul {
-  font-size: 14pt;
-}
-
-li:hover {
-  background-color: rgb(230, 230, 230);
-  cursor: pointer;
+p {
+  font-size: 12pt;
 }

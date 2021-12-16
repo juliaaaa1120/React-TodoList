@@ -1,5 +1,5 @@
+import TodoGroup from "./TodoGroup";
 import { useSelector } from "react-redux";
-import { List } from 'antd';
 import { SmileOutlined } from "@ant-design/icons"
 
 function DoneList() {
@@ -8,13 +8,9 @@ function DoneList() {
     return (
         <div className="done-list">
             <h1><SmileOutlined />   Done List</h1>
-            <List
-                size="large"
-                bordered
-                dataSource={doneList}
-                renderItem={doneItem => <List.Item>{doneItem.text}</List.Item>}
-                locale={{ emptyText: "No done items."}}>
-            </List>
+            {
+                doneList.length !== 0 ? <TodoGroup todoList={doneList}></TodoGroup> : <p>No done items.</p>
+            }
         </div>
     );
 }

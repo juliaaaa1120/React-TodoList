@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ADD_TODO_ITEM } from "../constants/constants";
 import { addTodo } from "../apis/todos";
+import { Input, Button } from 'antd';
 
 function TodoGenerator() {
     const [text, setText] = useState("");
@@ -18,8 +19,12 @@ function TodoGenerator() {
 
     return (
         <div className="todo-generator">
-            <input value={text} placeholder="please input todo item ..." type="text" onChange={event => setText(event.target.value)}></input>
-            <button type="submit" onClick={addTodoItem}>add</button>
+            <Input.Group compact>
+                <Input style={{ width: 'calc(100% - 240px)', textAlign: "left"}} value={text} placeholder="Please input todo item ..." 
+                onChange={e => setText(e.target.value)}></Input>
+                {console.log({text})}
+                <Button type="primary" size="large" onClick={addTodoItem}>Add</Button>
+            </Input.Group>
         </div>
     );
 }

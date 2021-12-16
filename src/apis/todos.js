@@ -9,8 +9,8 @@ export const addTodo = (item) => {
     return api.post("/todos", item);
 };
 
-export const updateStatus = (item) => {
-    return api.put("/todos/" + item.id, { done: item.done });
+export const updateTodo = (item) => {
+    return api.put("/todos/" + item.id, item);
 };
 
 export const removeTodo = (id) => {

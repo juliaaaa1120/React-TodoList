@@ -1,13 +1,37 @@
+import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
-import { UPDATE_STATUS, REMOVE_TODO_ITEM } from "../constants/constants";
-import { updateStatus, removeTodo } from "../apis/todos";
+import { UPDATE_TODO_ITEM, REMOVE_TODO_ITEM } from "../constants/constants";
+import { updateTodo, removeTodo } from "../apis/todos";
+import { Modal } from 'antd';
+import { DeleteOutlined, EditOutlined } from "@ant-design/icons"
+import TextArea from 'antd/lib/input/TextArea';
 
 function TodoItem(props) {
     const dispatch = useDispatch();
+    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [editText, setEditText] = useState(props.todoItem.text);
 
-    function toggleTodoItem() {
-        updateStatus({id: props.todoItem.id, done: !props.todoItem.done}).then(() => {
-            dispatch({ type: UPDATE_STATUS, payload: props.todoItem });
+    function showModal() {
+        setIsModalVisible(true);
+      };
+    
+    function handleOk() {
+        setIsModalVisible(false);
+        if (editText.trim() !== "") {
+            updateTodo({id: props.todoItem.id, text: editText}).then((response) => {
+                dispatch({ type: UPDATE_TODO_ITEM, payload: response.data });
+            });
+        }
+      };
+    
+    function handleCancel() {
+        setIsModalVisible(false);
+        setEditText(props.todoItem.text);
+    };
+
+    function updateStatus() {
+        updateTodo({id: props.todoItem.id, done: !props.todoItem.done}).then((response) => {
+            dispatch({ type: UPDATE_TODO_ITEM, payload: response.data });
         });
     }
 
@@ -18,15 +42,23 @@ function TodoItem(props) {
     }
 
     return (
-        <div className="todo-item">
-            <span onClick={toggleTodoItem}>
-                <p className={
-                props.todoItem.done ? "line-through" : ""
-            }>{props.todoItem.text}</p>
-            </span>
-            <button id="delete" onClick={removeTodoItem}>x</button>
-        </div>
+        <>
+            <Modal title="Edit Todo Item" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}
+            okText="Confirm" okButtonProps={{ disabled: editText.trim() === ""}}>
+                <TextArea placeholder="Edit todo item here ..." value={editText}
+                onChange={e => setEditText(e.target.value)}></TextArea>
+            </Modal>
+            <div className="todo-item">
+                <span onClick={updateStatus} className={
+                    props.todoItem.done ? "line-through" : "normal-text"
+                }>
+                    {props.todoItem.text}
+                </span>
+                <span className="todo-item-button" id="remove" onClick={removeTodoItem}><DeleteOutlined /></span>
+                <span className="todo-item-button" id="edit" onClick={showModal}><EditOutlined /></span>
+            </div>
+        </>
     );
-}
+};
 
 export default TodoItem;

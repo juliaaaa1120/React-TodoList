@@ -7,7 +7,7 @@ function UndoneList() {
         <div className="undone-list">
             <h1>Undone List</h1>
             {
-                (undoneList.length !== 0) ? undoneList.map(todoItem => <p>{todoItem.text}</p>) : <p>No undone items.</p>
+                undoneList.length !== 0 ? undoneList.map(todoItem => <p>{todoItem.text}</p>) : <p>No undone items.</p>
             }
         </div>
     );

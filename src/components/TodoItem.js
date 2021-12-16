@@ -43,15 +43,11 @@ function TodoItem(props) {
 
     return (
         <>
-            <Modal title="Edit Todo Item" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}
-            okText="Confirm" okButtonProps={{ disabled: editText.trim() === ""}}>
-                <TextArea placeholder="Edit todo item here ..." value={editText}
-                onChange={e => setEditText(e.target.value)}></TextArea>
+            <Modal title="Edit Todo Item" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel} okText="Confirm">
+                <TextArea placeholder="Edit todo item here ..." value={editText} onChange={e => setEditText(e.target.value)}></TextArea>
             </Modal>
-            <div className="todo-item">
-                <span onClick={updateStatus} className={
-                    props.todoItem.done ? "line-through" : "normal-text"
-                }>
+            <div className={ props.todoItem.done ? "todo-item-done" : "todo-item-undone" }>
+                <span onClick={updateStatus} className={ props.todoItem.done ? "line-through" : "normal-text" }>
                     {props.todoItem.text}
                 </span>
                 <span className="todo-item-button" id="remove" onClick={removeTodoItem}><DeleteOutlined /></span>

@@ -1,12 +1,13 @@
 import { useSelector } from "react-redux";
 import { List } from 'antd';
+import { SmileOutlined } from "@ant-design/icons"
 
 function DoneList() {
     const doneList = useSelector(state => state.todoList.filter(todoItem => todoItem.done === true));
 
     return (
         <div className="done-list">
-            <h1>Done List</h1>
+            <h1><SmileOutlined />   Done List</h1>
             <List
                 size="large"
                 bordered

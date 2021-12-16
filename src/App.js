@@ -15,10 +15,10 @@ function App() {
     <Router>
       <div>
           <nav>
-            <ul>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/done">Done</Link></li>
-              <li><Link to="/undone">Undone</Link></li>
+            <ul id="nav">
+              <li id="nav"><Link to="/">Home</Link></li>
+              <li id="nav"><Link to="/done">Done</Link></li>
+              <li id="nav"><Link to="/undone">Undone</Link></li>
             </ul>
           </nav>
           <Switch>

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { INIT_TODO_LIST } from "../constants/constants";
 import { getTodos } from "../apis/todos";
+import { ScheduleOutlined } from "@ant-design/icons"
 
 function TodoList() {
     const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function TodoList() {
 
     return (
         <div className="todo-list">
-            <h1>Todo List</h1>
+            <h1><ScheduleOutlined />    Todo List</h1>
             <TodoGenerator></TodoGenerator>
             <TodoGroup></TodoGroup>
         </div>

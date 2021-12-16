@@ -20,10 +20,9 @@ function TodoGenerator() {
     return (
         <div className="todo-generator">
             <Input.Group compact>
-                <Input style={{ width: 'calc(100% - 240px)', textAlign: "left"}} value={text} placeholder="Please input todo item ..." 
-                onChange={e => setText(e.target.value)}></Input>
-                {console.log({text})}
-                <Button type="primary" size="large" onClick={addTodoItem}>Add</Button>
+                <Input style={{ width: 'calc(100% - 350px)', height: "40px", textAlign: "left"}} value={text} 
+                placeholder="Please input todo item ..." onChange={e => setText(e.target.value)} allowClear></Input>
+                <Button style={{ height: "40px" }} type="primary" size="large" onClick={addTodoItem}>Add</Button>
             </Input.Group>
         </div>
     );

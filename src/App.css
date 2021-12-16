@@ -1,20 +1,33 @@
 .todo-list, .done-list, .undone-list {
   margin: 40px;
   text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
 }
 
 .todo-group {
   margin-top: 35px;
 }
 
-.todo-item {
+.todo-item-undone {
   border: 2px solid;
   font-size: 14pt;
   text-align: left;
   margin-top: 20px;
-  margin-left: 15%;
-  margin-right: 15%;
   padding: 10px;
+}
+
+.todo-item-done {
+  opacity: 0.35;
+  border: 2px solid;
+  font-size: 14pt;
+  text-align: left;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.todo-item:hover {
+  background-color: rgb(230, 230, 230);
 }
 
 .todo-item-button {
@@ -33,15 +46,6 @@
   margin-right: 15%;
 }
 
-input {
-  width: 310px;
-  height: 40px;
-  border: 2px solid rgb(133, 133, 133);
-  border-radius: 4px;
-  font-size: 16px;
-  vertical-align: middle;
-}
-
 .line-through {
   text-decoration: line-through;
   cursor: pointer;
@@ -51,20 +55,21 @@ input {
   cursor: pointer;
 }
 
-ul {
+ul[id="nav"] {
+  font-size: 11pt;
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(70, 70, 70);
 }
 
-li {
+li[id="nav"] {
   float: left;
   border-right:1px solid #bbb;
 }
 
-li a {
+li[id="nav"] a {
   display: block;
   color: white;
   text-align: center;
@@ -72,6 +77,16 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+li[id="nav"] a:hover {
   background-color: #111;
+  cursor: pointer;
+}
+
+ul {
+  font-size: 14pt;
+}
+
+li:hover {
+  background-color: rgb(230, 230, 230);
+  cursor: pointer;
 }

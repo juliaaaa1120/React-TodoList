@@ -8,9 +8,11 @@ function UndoneList() {
     return (
         <div className="undone-list">
             <h1><AlertOutlined />   Undone List</h1>
+            <div className="todo-group">
             {
-                undoneList.length !== 0 ? <TodoGroup todoList={undoneList}></TodoGroup> : <p>No undone items.</p>
+                undoneList.length !== 0 ? <TodoGroup todoList={undoneList}></TodoGroup> : <p id="message">No undone items.</p>
             }
+            </div>
         </div>
     );
 }

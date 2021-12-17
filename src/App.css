@@ -82,6 +82,7 @@ li a:hover {
   cursor: pointer;
 }
 
-p {
+p[id="message"] {
+  font-style: italic;
   font-size: 12pt;
 }

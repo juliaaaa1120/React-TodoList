@@ -8,9 +8,11 @@ function DoneList() {
     return (
         <div className="done-list">
             <h1><SmileOutlined />   Done List</h1>
+            <div className="todo-group">
             {
-                doneList.length !== 0 ? <TodoGroup todoList={doneList}></TodoGroup> : <p>No done items.</p>
+                doneList.length !== 0 ? <TodoGroup todoList={doneList}></TodoGroup> : <p id="message">No done items.</p>
             }
+            </div>
         </div>
     );
 }

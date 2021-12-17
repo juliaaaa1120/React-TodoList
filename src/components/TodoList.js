@@ -20,9 +20,11 @@ function TodoList() {
         <div className="todo-list">
             <h1><ScheduleOutlined />    Todo List</h1>
             <TodoGenerator></TodoGenerator>
+            <div className="todo-group">
             {
-                todoList.length !== 0 ? <TodoGroup todoList={todoList}></TodoGroup> : <p>No todo items. Please create one!</p>
+                todoList.length !== 0 ? <TodoGroup todoList={todoList}></TodoGroup> : <p id="message">No todo items. Please create one!</p>
             }
+            </div>
         </div>
     );
 }
